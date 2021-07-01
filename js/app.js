@@ -26,10 +26,28 @@ UI.prototype.llenarOpciones = () => {
 
 // Instanciando UI
 const ui = new UI();
-console.log(ui);
+// console.log(ui);
 
 document.addEventListener('DOMContentLoaded', () => {
     ui.llenarOpciones();
 })
 
+eventListeners();
+function eventListeners() {
+    const formulario = document.querySelector('#cotizar-seguro');
+    formulario.addEventListener('submit', cotizarSeguro);
+}
 
+function cotizarSeguro(e) {
+    e.preventDefault();
+    // Leer la marca seleccionada
+    const marca = document.querySelector('#marca').value;
+
+    // Leer el año seleccionado
+    const year = document.querySelector('#year').value;
+
+    // Leer el tipo de covertura
+    const tipo = document.querySelector('input[name="tipo"]:checked').value;
+
+    console.log('cotizando');
+}
